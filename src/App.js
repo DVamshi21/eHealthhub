@@ -1,15 +1,24 @@
 import React from 'react';
-import componentA from './components/componentA';
-import componentB from './components/componentB';
+import { Provider } from 'react-redux'; 
+import store from './State/store';
+import ComponentA from './ComponentA';
+import ComponentB from './ComponentB';
 
-const App = () => {
+function App() {
   return (
-    <div>
-      <h1>Redux Data Sharing Example</h1>
-      <componentA />
-      <componentB />
-    </div>
+  <>
+    <Provider store={store}> 
+      <div>
+        <h2 style={{ textAlign: 'center', margin: '20px 0' }}>Redux Data Transfer Example</h2>
+        <hr></hr>
+        <ComponentA />
+        <hr></hr>
+        <ComponentB />
+        <hr></hr>
+      </div>
+    </Provider>
+  </>
   );
-};
+}
 
 export default App;

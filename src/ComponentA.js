@@ -1,26 +1,28 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-const componentA = () => {
+function ComponentA() {
   const [input, setInput] = useState('');
   const dispatch = useDispatch();
 
-  const handleSendMessage = () => {
-    dispatch({ type: 'SET_MESSAGE', payload: input }); 
+  const handleSend = () => {
+    dispatch({ type: 'SET_MESSAGE', payload: input });
   };
 
   return (
-    <div>
-      <h2>componentA (Sender)</h2>
+    <div style={{marginBottom:'20px'}}>
+      <h2>Component A</h2>
       <input
         type="text"
         value={input}
         onChange={(e) => setInput(e.target.value)}
         placeholder="Enter a message"
+        style={{width:'300px',padding:'8px',marginBottom:'10Px'}}
       />
-      <button onClick={handleSendMessage}>Send to componentB</button>
+      <br />
+      <button onClick={handleSend}>Send Message</button>
     </div>
   );
-};
+}
 
-export default componentA;
+export default ComponentA;
